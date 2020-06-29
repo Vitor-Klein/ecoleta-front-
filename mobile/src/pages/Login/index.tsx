@@ -5,16 +5,15 @@ import { RectButton } from 'react-native-gesture-handler'
 import { useNavigation } from '@react-navigation/native'
 
 
-const Home = () => {
-  const [uf, setUf] = useState('')
-  const [city, setCity] = useState('')
+const Login = () => {
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
 
   const navigation = useNavigation()
 
-  function handleNavigateToPoints() {
-    navigation.navigate('Points',{
-      uf,
-      city,
+  function handleNavigateToHome() {
+    navigation.navigate('Home',{
+      email,
     })
   }
 
@@ -31,30 +30,33 @@ const Home = () => {
         <View style={styles.main}>
           <Image source={require('../../assets/logo.png')} />
           <View>
-            <Text style={styles.title}>Seja Bem Vindo</Text>
-            <Text style={styles.description}>Insira o estado e a sua cidade para encontrar os residuos na sua area.</Text>
+            <Text style={styles.title}>Seu Marketplace de coleta de residuos</Text>
+            <Text style={styles.description}>Ajudamos pessoas a encontrarem pontos de coléta de forma eficiente.</Text>
           </View>
         </View>
 
         <View style={styles.footer}>
           <TextInput 
             style={styles.input}
-            placeholder="Digite a UF"
-            value={uf}
+            placeholder="Insira se E-mail"
+            value={email}
             maxLength={2}
             autoCapitalize="characters"
             autoCorrect={false}
-            onChangeText={setUf}
-          />
-          <TextInput 
-            style={styles.input}
-            placeholder="Digite a Cidade"
-            value={city}
-            autoCorrect={false}
-            onChangeText={setCity}
+            onChangeText={setEmail}
           />
 
-          <RectButton style={styles.button} onPress={handleNavigateToPoints}>
+          <TextInput 
+            style={styles.input}
+            placeholder="Insira se Nome"
+            value={name}
+            maxLength={2}
+            autoCapitalize="characters"
+            autoCorrect={false}
+            onChangeText={setName}
+          />
+
+          <RectButton style={styles.button} onPress={handleNavigateToHome}>
             <View style={styles.buttonIcon}>
               <Text>
                 <Icon name="arrow-right" color="#FFF" size={24} />
@@ -83,10 +85,10 @@ const styles = StyleSheet.create({
 
   title: {
     color: '#322153',
-    fontSize: 34,
+    fontSize: 32,
     fontFamily: 'Ubuntu_700Bold',
     maxWidth: 260,
-    marginTop: 75,
+    marginTop: 64,
   },
 
   description: {
@@ -139,4 +141,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Home
+export default Login
