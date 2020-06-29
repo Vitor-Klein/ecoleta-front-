@@ -40,8 +40,6 @@ const Login = () => {
             style={styles.input}
             placeholder="Insira se E-mail"
             value={email}
-            maxLength={2}
-            autoCapitalize="characters"
             autoCorrect={false}
             onChangeText={setEmail}
           />
@@ -50,8 +48,6 @@ const Login = () => {
             style={styles.input}
             placeholder="Insira se Nome"
             value={name}
-            maxLength={2}
-            autoCapitalize="characters"
             autoCorrect={false}
             onChangeText={setName}
           />
